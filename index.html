@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PT MUTIARA KHARISMA TRANS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      };
+
+      function toggleDarkMode() {
+        document.documentElement.classList.toggle("dark");
+      }
+
+      function toggleMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+      }
+    </script>
+  </head>
+
+  <body class="bg-white text-gray-900 dark:bg-black dark:text-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="p-4 flex justify-between items-center bg-white dark:bg-gray-900 shadow">
+      <div class="flex items-center space-x-4">
+        <h1 class="text-lg sm:text-xl font-bold">PT MUTIARA KHARISMA TRANS</h1>
+        <button onclick="toggleDarkMode()" class="px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 text-sm">
+          Mode
+        </button>
+      </div>
+      <!-- Hamburger -->
+      <button class="sm:hidden" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Menu -->
+      <ul id="mobileMenu" class="hidden sm:flex sm:space-x-6 text-sm font-medium absolute sm:static top-16 left-0 w-full sm:w-auto bg-white dark:bg-gray-900 p-4 sm:p-0 sm:flex-row flex-col sm:items-center z-10 shadow sm:shadow-none">
+        <li><a href="#tentang" class="block py-2 sm:py-0 hover:text-green-500">Tentang Kami</a></li>
+        <li><a href="#produk" class="block py-2 sm:py-0 hover:text-green-500">Produk</a></li>
+        <li><a href="#testimoni" class="block py-2 sm:py-0 hover:text-green-500">Testimoni</a></li>
+        <li><a href="#faq" class="block py-2 sm:py-0 hover:text-green-500">FAQ</a></li>
+        <li><a href="#kontak" class="block py-2 sm:py-0 hover:text-green-500">Kontak</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="relative min-h-[80vh] sm:min-h-screen flex items-center justify-center text-center bg-cover bg-center"
+      style="background-image: url('photo_2025-05-25_12-14-46.jpg');">
+      <div class="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
+      <div class="relative z-10 text-white px-4">
+        <h2 class="text-2xl sm:text-4xl font-bold mb-4">PT MUTIARA KHARISMA TRANS</h2>
+        <p class="text-base sm:text-lg mb-6">Melayani pengiriman barang profesional, aman, dan tepat waktu ke seluruh Indonesia</p>
+        <div class="space-y-2 sm:space-x-3 sm:space-y-0">
+          <a href="#layanan" class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Pesan Sekarang</a>
+          <a href="#layanan" class="inline-block bg-white text-gray-800 dark:bg-gray-600 dark:text-white px-4 py-2 rounded">Lihat Layanan</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sections -->
+    <section id="tentang" class="p-6 sm:p-8">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Tentang Kami</h3>
+      <p>Kami adalah perusahaan logistik yang berdedikasi untuk memberikan layanan terbaik.</p>
+    </section>
+
+    <section id="produk" class="p-6 sm:p-8 bg-gray-100 dark:bg-gray-800">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Produk</h3>
+      <p>Daftar produk dan layanan transportasi kami.</p>
+    </section>
+
+    <section id="testimoni" class="p-6 sm:p-8">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Testimoni</h3>
+      <p>Ulasan dari pelanggan kami yang puas.</p>
+    </section>
+
+    <section id="faq" class="p-6 sm:p-8 bg-gray-100 dark:bg-gray-800">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4">FAQ</h3>
+      <p>Pertanyaan yang sering ditanyakan oleh pelanggan.</p>
+    </section>
+
+    <section id="kontak" class="p-6 sm:p-8">
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Kontak</h3>
+      <p>Hubungi kami melalui email atau media sosial.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-4 text-center border-t dark:border-gray-700 text-sm">
+      &copy; 2025 PT MUTIARA KHARISMA TRANS
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
