@@ -1,13 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #494b53, #000000);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .countdown {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
 <body>
-    <h1>
-        hai
-    </h1>
+  <div class="container">
+    <h1>Coming Soon</h1>
+     <div class="countdown" id="countdown">Segera Hadir</div>
+    <p>Nantikan!</p>
+  </div>
 </body>
 </html>
