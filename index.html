@@ -6,6 +6,7 @@
     <title>PT MUTIARA KHARISMA TRANS</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/heroicons@2.0.16/dist/heroicons.js"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -18,6 +19,48 @@
       function toggleMenu() {
         document.getElementById('mobileMenu').classList.toggle('hidden');
       }
+
+      const translations = {
+        id: {
+          title: "PT MUTIARA KHARISMA TRANS",
+          subtitle: "Melayani pengiriman barang profesional, aman, dan tepat waktu ke seluruh Indonesia",
+          about: "Tentang Kami",
+          aboutContent: "Kami adalah perusahaan logistik yang berdedikasi untuk memberikan layanan terbaik.",
+          products: "Transportasi",
+          productsContent: "Daftar layanan transportasi kami.",
+          testimonials: "Testimoni",
+          testimonialsContent: "Ulasan dari pelanggan kami yang puas.",
+          faq: "FAQ",
+          faqContent: "Pertanyaan yang sering ditanyakan oleh pelanggan.",
+          contact: "Kontak",
+          contactContent: "Hubungi kami melalui email atau media sosial.",
+          orderNow: "Pesan Sekarang",
+          viewServices: "Lihat Layanan",
+        },
+        en: {
+          title: "PT MUTIARA KHARISMA TRANS",
+          subtitle: "Professional, safe, and on-time delivery services across Indonesia",
+          about: "About Us",
+          aboutContent: "We are a logistics company dedicated to providing the best service.",
+          products: "Transportation",
+          productsContent: "Our list of transportation services.",
+          testimonials: "Testimonials",
+          testimonialsContent: "Reviews from our satisfied customers.",
+          faq: "FAQ",
+          faqContent: "Frequently asked questions from our customers.",
+          contact: "Contact",
+          contactContent: "Reach us via email or social media.",
+          orderNow: "Order Now",
+          viewServices: "View Services",
+        }
+      };
+
+      function setLanguage(lang) {
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          el.innerText = translations[lang][key];
+        });
+      }
     </script>
   </head>
 
@@ -25,12 +68,15 @@
     <!-- Navbar -->
     <nav class="p-4 flex justify-between items-center bg-white dark:bg-gray-900 shadow">
       <div class="flex items-center space-x-4">
-        <h1 class="text-lg sm:text-xl font-bold">PT MUTIARA KHARISMA TRANS</h1>
+        <h1 class="text-lg sm:text-xl font-bold" data-i18n="title">PT MUTIARA KHARISMA TRANS</h1>
         <button onclick="toggleDarkMode()" class="px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 text-sm">
           Mode
         </button>
+        <select onchange="setLanguage(this.value)" class="ml-2 text-sm px-2 py-1 rounded bg-gray-200 dark:bg-gray-700">
+          <option value="id">ID</option>
+          <option value="en">EN</option>
+        </select>
       </div>
-      <!-- Hamburger -->
       <button class="sm:hidden" onclick="toggleMenu()">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -38,13 +84,13 @@
         </svg>
       </button>
 
-      <!-- Menu -->
-      <ul id="mobileMenu" class="hidden sm:flex sm:space-x-6 text-sm font-medium absolute sm:static top-16 left-0 w-full sm:w-auto bg-white dark:bg-gray-900 p-4 sm:p-0 sm:flex-row flex-col sm:items-center z-10 shadow sm:shadow-none">
-        <li><a href="#tentang" class="block py-2 sm:py-0 hover:text-green-500">Tentang Kami</a></li>
-        <li><a href="#produk" class="block py-2 sm:py-0 hover:text-green-500">Produk</a></li>
-        <li><a href="#testimoni" class="block py-2 sm:py-0 hover:text-green-500">Testimoni</a></li>
-        <li><a href="#faq" class="block py-2 sm:py-0 hover:text-green-500">FAQ</a></li>
-        <li><a href="#kontak" class="block py-2 sm:py-0 hover:text-green-500">Kontak</a></li>
+      <ul id="mobileMenu"
+        class="hidden sm:flex sm:space-x-6 text-sm font-medium absolute sm:static top-16 left-0 w-full sm:w-auto bg-white dark:bg-gray-900 p-4 sm:p-0 sm:flex-row flex-col sm:items-center z-10 shadow sm:shadow-none">
+        <li><a href="#tentang" data-i18n="about" class="block py-2 sm:py-0 hover:text-green-500">Tentang Kami</a></li>
+        <li><a href="#produk" data-i18n="products" class="block py-2 sm:py-0 hover:text-green-500">Produk</a></li>
+        <li><a href="#testimoni" data-i18n="testimonials" class="block py-2 sm:py-0 hover:text-green-500">Testimoni</a></li>
+        <li><a href="#faq" data-i18n="faq" class="block py-2 sm:py-0 hover:text-green-500">FAQ</a></li>
+        <li><a href="#kontak" data-i18n="contact" class="block py-2 sm:py-0 hover:text-green-500">Kontak</a></li>
       </ul>
     </nav>
 
@@ -53,39 +99,56 @@
       style="background-image: url('photo_2025-05-25_12-14-46.jpg');">
       <div class="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
       <div class="relative z-10 text-white px-4">
-        <h2 class="text-2xl sm:text-4xl font-bold mb-4">PT MUTIARA KHARISMA TRANS</h2>
-        <p class="text-base sm:text-lg mb-6">Melayani pengiriman barang profesional, aman, dan tepat waktu ke seluruh Indonesia</p>
+        <h2 class="text-2xl sm:text-4xl font-bold mb-4" data-i18n="title">PT MUTIARA KHARISMA TRANS</h2>
+        <p class="text-base sm:text-lg mb-6" data-i18n="subtitle">
+          Melayani pengiriman barang profesional, aman, dan tepat waktu ke seluruh Indonesia
+        </p>
         <div class="space-y-2 sm:space-x-3 sm:space-y-0">
-          <a href="#layanan" class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Pesan Sekarang</a>
-          <a href="#layanan" class="inline-block bg-white text-gray-800 dark:bg-gray-600 dark:text-white px-4 py-2 rounded">Lihat Layanan</a>
+          <a href="pesan sekarang.html" data-i18n="orderNow" class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Pesan Sekarang</a>
+          <a href="layanan.html" data-i18n="viewServices" class="inline-block bg-white text-gray-800 dark:bg-gray-600 dark:text-white px-4 py-2 rounded"  >Lihat Layanan</a>
         </div>
       </div>
     </header>
 
     <!-- Sections -->
     <section id="tentang" class="p-6 sm:p-8">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Tentang Kami</h3>
-      <p>Kami adalah perusahaan logistik yang berdedikasi untuk memberikan layanan terbaik.</p>
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4" data-i18n="about">Tentang Kami</h3>
+      <p data-i18n="aboutContent">Kami adalah perusahaan logistik yang berdedikasi untuk memberikan layanan terbaik.</p>
     </section>
 
     <section id="produk" class="p-6 sm:p-8 bg-gray-100 dark:bg-gray-800">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Produk</h3>
-      <p>Daftar produk dan layanan transportasi kami.</p>
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4" data-i18n="products">Transportasi</h3>
+      <p data-i18n="productsContent">Daftar layanan transportasi kami.</p>
     </section>
 
     <section id="testimoni" class="p-6 sm:p-8">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Testimoni</h3>
-      <p>Ulasan dari pelanggan kami yang puas.</p>
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4" data-i18n="testimonials">Testimoni</h3>
+      <p data-i18n="testimonialsContent">Ulasan dari pelanggan kami yang puas.</p>
     </section>
 
     <section id="faq" class="p-6 sm:p-8 bg-gray-100 dark:bg-gray-800">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-4">FAQ</h3>
-      <p>Pertanyaan yang sering ditanyakan oleh pelanggan.</p>
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4" data-i18n="faq">FAQ</h3>
+      <p data-i18n="faqContent">Pertanyaan yang sering ditanyakan oleh pelanggan.</p>
     </section>
 
+    <!-- Kontak dengan Ikon -->
     <section id="kontak" class="p-6 sm:p-8">
-      <h3 class="text-xl sm:text-2xl font-semibold mb-4">Kontak</h3>
-      <p>Hubungi kami melalui email atau media sosial.</p>
+      <h3 class="text-xl sm:text-2xl font-semibold mb-4" data-i18n="contact">Kontak</h3>
+      <div class="mt-4 space-y-4 text-sm sm:text-base">
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.1.54 4.06 1.48 5.77L0 24l6.34-1.66A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.1-3.48-8.52zM12 22a9.94 9.94 0 01-5.27-1.5l-.38-.23-3.75.98 1-3.64-.25-.39A9.94 9.94 0 012 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.34-7.53c-.3-.15-1.77-.87-2.05-.97-.27-.1-.46-.15-.65.15s-.75.97-.93 1.17c-.17.2-.34.22-.63.07-.3-.15-1.27-.47-2.42-1.5a9.12 9.12 0 01-1.7-2.1c-.18-.3-.02-.46.13-.6.14-.15.3-.34.45-.5.15-.17.2-.28.3-.46.1-.17.05-.34 0-.49-.06-.15-.65-1.56-.9-2.14-.24-.57-.49-.5-.65-.5-.17 0-.36 0-.55 0s-.48.07-.72.34c-.25.26-.95.93-.95 2.25s.98 2.6 1.12 2.78c.15.17 1.9 2.9 4.6 4.06 1.6.7 2.23.75 3.03.63.49-.07 1.47-.6 1.67-1.17.2-.56.2-1.04.14-1.14-.06-.1-.27-.16-.57-.31z"/>
+          </svg>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:underline">+62 812-3456-7890</a>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 6 8-6v10H4z"/>
+          </svg>
+          <a href="mailto:info@mutiarakharisma.co.id" class="text-green-500 hover:underline">info@mutiarakharisma.co.id</a>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
