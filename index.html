@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id" class="dark">
   <head>
+    <script src="scripts.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PT MUTIARA KHARISMA TRANS</title>
@@ -26,14 +27,16 @@
             d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
-      <ul id="mobileMenu"
-        class="hidden sm:flex sm:space-x-6 text-sm font-medium absolute sm:static top-16 left-0 w-full sm:w-auto bg-white dark:bg-gray-900 p-4 sm:p-0 sm:flex-row flex-col sm:items-center z-10 shadow sm:shadow-none">
-        <li><a href="#tentang" data-i18n="about" class="block py-2 sm:py-0 hover:text-green-500">Tentang Kami</a></li>
-        <li><a href="#produk" data-i18n="products" class="block py-2 sm:py-0 hover:text-green-500">Produk</a></li>
-        <li><a href="#testimoni" data-i18n="testimonials" class="block py-2 sm:py-0 hover:text-green-500">Testimoni</a></li>
-        <li><a href="#faq" data-i18n="faq" class="block py-2 sm:py-0 hover:text-green-500">FAQ</a></li>
-        <li><a href="#kontak" data-i18n="contact" class="block py-2 sm:py-0 hover:text-green-500">Kontak</a></li>
-      </ul>
+     <<ul id="mobileMenu"
+  class="hidden sm:flex sm:space-x-6 text-sm font-medium fixed top-16 left-0 w-full sm:w-auto bg-white/90 dark:bg-gray-900/90 p-4 sm:p-0 sm:static sm:flex-row flex-col sm:items-center z-50 shadow sm:shadow-none backdrop-blur-md">
+  <li><a href="#tentang" onclick="closeMenu()" data-i18n="about" class="block py-2 sm:py-0 hover:text-green-500">Tentang Kami</a></li>
+  <li><a href="#produk" onclick="closeMenu()" data-i18n="products" class="block py-2 sm:py-0 hover:text-green-500">Produk</a></li>
+  <li><a href="#testimoni" onclick="closeMenu()" data-i18n="testimonials" class="block py-2 sm:py-0 hover:text-green-500">Testimoni</a></li>
+  <li><a href="#faq" onclick="closeMenu()" data-i18n="faq" class="block py-2 sm:py-0 hover:text-green-500">FAQ</a></li>
+  <li><a href="#kontak" onclick="closeMenu()" data-i18n="contact" class="block py-2 sm:py-0 hover:text-green-500">Kontak</a></li>
+</ul>
+
+
     </nav>
 
     <!-- Header -->
@@ -45,7 +48,6 @@
         <p class="text-base sm:text-lg mb-6" data-i18n="subtitle">Melayani pengiriman barang profesional, aman, dan tepat waktu ke seluruh Indonesia</p>
         <div class="space-y-2 sm:space-x-3 sm:space-y-0">
           <a href="pesan sekarang.html" data-i18n="orderNow" class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Pesan Sekarang</a>
-          <a href="layanan.html" data-i18n="viewServices" class="inline-block bg-white text-gray-800 dark:bg-gray-600 dark:text-white px-4 py-2 rounded">Lihat Layanan</a>
         </div>
       </div>
     </header>
@@ -56,7 +58,7 @@
       <p data-i18n="aboutContent">Kami adalah perusahaan logistik yang berdedikasi untuk memberikan layanan terbaik.</p>
     </section>
 
-    <section id="produk" class="p-6 sm:p-8 bg-gray-100 dark:bg-gray-800">
+    <section id="Transportasi" class="p-6 sm:p-8 bg-gray-100 dark:bg-gray-800">
       <h3 class="text-xl sm:text-2xl font-semibold mb-4" data-i18n="products">Transportasi</h3>
       <p data-i18n="productsContent">Daftar layanan transportasi kami.</p>
     </section>

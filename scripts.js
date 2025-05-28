@@ -1,15 +1,31 @@
+// Tailwind config
 tailwind.config = {
   darkMode: 'class',
 };
 
+// Toggle Dark Mode
 function toggleDarkMode() {
   document.documentElement.classList.toggle("dark");
 }
 
+// Toggle Menu (open/close)
 function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('hidden');
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('hidden');
 }
 
+// Close mobile menu after clicking a link
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#mobileMenu a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', () => {
+      if (window.innerWidth < 640) {
+        document.getElementById('mobileMenu').classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Translations (i18n)
 const translations = {
   id: {
     title: "PT MUTIARA KHARISMA TRANS",
@@ -45,13 +61,17 @@ const translations = {
   }
 };
 
+// Set Language
 function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    el.innerText = translations[lang][key];
+    if (translations[lang][key]) {
+      el.innerText = translations[lang][key];
+    }
   });
 }
 
+// Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
